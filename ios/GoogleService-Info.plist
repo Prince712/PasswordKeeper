@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>543320917885-bjhm7nn2gsucvs4o7kkotffuge59esbb.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.543320917885-bjhm7nn2gsucvs4o7kkotffuge59esbb</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>543320917885-4lbu5svsrbr6l4qe16j15gbhddeboh76.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBH_4DHUgLWoO7JacERGYFuZ8wP33DD3f8</string>
+	<key>GCM_SENDER_ID</key>
+	<string>543320917885</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.PasswordKeeper</string>
+	<key>PROJECT_ID</key>
+	<string>passwordkeeper-9c570</string>
+	<key>STORAGE_BUCKET</key>
+	<string>passwordkeeper-9c570.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:543320917885:ios:aad7e6168c62c20b5a6e14</string>
+</dict>
+</plist>

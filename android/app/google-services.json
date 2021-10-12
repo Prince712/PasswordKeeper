@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "543320917885",
+    "project_id": "passwordkeeper-9c570",
+    "storage_bucket": "passwordkeeper-9c570.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:543320917885:android:49024dc6282b86b35a6e14",
+        "android_client_info": {
+          "package_name": "com.passwordkeeper"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "543320917885-4lbu5svsrbr6l4qe16j15gbhddeboh76.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.passwordkeeper",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "543320917885-ied46nhhbf36u4cb6oofi17evnla5l4f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAR3bcqfkxDI3fRjgUNY0GSOVhGow8rbNI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "543320917885-ied46nhhbf36u4cb6oofi17evnla5l4f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

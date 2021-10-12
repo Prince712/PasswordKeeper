@@ -1,24 +1,23 @@
 import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
-import Home from '../screens/Home';
-import AddForm from '../screens/AddForm';
-import TabNavigator from './TabNavigator';
+import Login from '../screens/Login';
+import Register from '../screens/Register';
 
 const Stack = createNativeStackNavigator();
 
-export default HomeStack = () => {
+export default AuthNavigator = () => {
   return (
     <Stack.Navigator>
       <Stack.Screen
-        name="HomeTabs"
-        component={TabNavigator}
+        name="Login"
+        component={Login}
         options={{headerShown: false}}
       />
       <Stack.Screen
-        name="AddForm"
-        component={AddForm}
-        options={{title: 'Add Password'}}
+        name="Register"
+        component={Register}
+        options={{headerShown: false}}
       />
     </Stack.Navigator>
   );
