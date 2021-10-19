@@ -1,5 +1,5 @@
 import React, {useContext, useState} from 'react';
-import {View,} from 'react-native';
+import {View,Platform,KeyboardAvoidingView,ScrollView} from 'react-native';
 import {
   NativeBaseProvider,
   Box,
@@ -13,7 +13,7 @@ import {
   IconButton,
   HStack,
   Divider,
-  useToast,Input
+  useToast,Input, Center,
 } from 'native-base';
 import {AuthContext} from '../navigators/AuthProvider';
 
@@ -22,6 +22,8 @@ import  {ShowToast}  from '../Components/ShowToast';
 export default function Register({navigation}) {
   const [email, setemail] = useState('');
   const [password, setpassword] = useState('');
+  const [firstName, setfirstName] = useState('');
+  const [lastName, setlastName] = useState('');
   const [confirmPassword, setconfirmPassword] = useState('');
   const [inputValue, setInputValue] = useState('');
   const Toast = useToast();
@@ -44,6 +46,14 @@ export default function Register({navigation}) {
   
     let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w\w+)+$/;
 
+    if (firstName == '') {
+      ShowToast('First name can not be empty!',Toast,id);
+      return;
+    }     
+    if (lastName == '') {
+      ShowToast('Last name can not be empty!',Toast,id);
+      return;
+    } 
     if (email == '') {
       ShowToast('Email can not be empty!',Toast,id);
       return;
@@ -68,12 +78,17 @@ export default function Register({navigation}) {
       return;         
     }
 
-    register(email,password);
+    register(email,password,firstName,lastName);
     console.log('register');
 
   };
-
+  const keyboardVerticalOffset = Platform.OS === 'ios' ? 40 : 0
   return (
+<KeyboardAvoidingView flex={1} contentContainerStyle={{flex:1}}
+ behavior={Platform.OS === "ios" ? "padding" : null}
+ keyboardVerticalOffset={Platform.OS === "ios" ? 64 : 0}
+  >
+    <ScrollView>
     <Box safeArea flex={1} p="2" w="90%" mx="auto" py="8">
       <Heading size="lg" color="coolGray.800" fontWeight="600">
         Welcome
@@ -85,11 +100,28 @@ export default function Register({navigation}) {
       <VStack space={3} mt="5">
         <FormControl>
           <FormControl.Label
+              _text={{color: 'muted.700', fontSize: 'xs', fontWeight: 500}}>
+              First Name
+            </FormControl.Label>
+            <Input  value={firstName}  onChangeText={(firstName) => setfirstName(firstName)}  />
+        </FormControl>
+
+        <FormControl>
+          <FormControl.Label
+              _text={{color: 'muted.700', fontSize: 'xs', fontWeight: 500}}>
+              Last Name
+            </FormControl.Label>
+            <Input  value={lastName}  onChangeText={(lastName) => setlastName(lastName)}  />
+        </FormControl>
+       
+        <FormControl>
+          <FormControl.Label
             _text={{color: 'muted.700', fontSize: 'xs', fontWeight: 500}}>
             Email
           </FormControl.Label>
-          <Input value={email}  onChangeText={(email) => setemail(email)}  />
+          <Input keyboardType="email-address" autoCapitalize='none'  value={email}  onChangeText={(email) => setemail(email)}  />
         </FormControl>
+
         <FormControl>
           <FormControl.Label
             _text={{color: 'muted.700', fontSize: 'xs', fontWeight: 500}}>
@@ -137,5 +169,7 @@ export default function Register({navigation}) {
           </HStack>
       </VStack>
     </Box>
+    </ScrollView>
+    </KeyboardAvoidingView>
   );
 }

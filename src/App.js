@@ -1,56 +1,62 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
+ 
   StyleSheet,
-  Text,
   // useColorScheme,
   View,
 } from 'react-native';
-import {NavigationContainer} from '@react-navigation/native';
-import HomeStack from './navigators/StackNavigator';
-import TabNavigator from './navigators/TabNavigator';
-import AuthNavigator from './navigators/AuthNavigator';
 import {extendTheme, NativeBaseProvider} from 'native-base';
-import auth from '@react-native-firebase/auth';
 import AuthProvider from './navigators/AuthProvider';
+import Routes from './navigators/Routes';
 
 const newColorTheme = {
   brand: {
-    900: '#8287af',
-    800: '#7c83db',
-    700: '#b3bef6',
+    900: '#FFFFFF',
+    800: '#000000',
+    700: '#000000',
   },
 };
-const theme = extendTheme({colors: newColorTheme});
+const colorTheme = extendTheme({
+  colors: {
+    // Add new color
+    primary: {
+      50: '#f5f3ff',
+      100: '#ede9fe',
+      200: '#ddd6fe',
+      300: '#c4b5fd',
+      400: '#a78bfa',
+      500: '#8b5cf6',
+      600: '#7c3aed',
+      700: '#6d28d9',
+      800: '#5b21b6',
+      900: '#4c1d95',
+    },
+
+    // Redefinig only one shade, rest of the color will remain same.
+    amber: {
+      400: '#d97706',
+    },
+  },
+  config: {
+    // Changing initialColorMode to 'dark'
+    initialColorMode: 'dark',
+  },
+});
+const theme = extendTheme({colors: colorTheme});
 // 3. Pass the `theme` prop to the `NativeBaseProvider`
 
 // Handle user state changes
 
 const App = () => {
-  // const isDarkMode = useColorScheme() === 'dark';
-  const [initializing, setInitializing] = useState(true);
-  const [user, setUser] = useState();
-
-  const onAuthStateChanged = user => {
-    setUser(user);
-    if (initializing) setInitializing(false);
-  };
-
-  useEffect(() => {
-    const subscriber = auth().onAuthStateChanged(onAuthStateChanged);
-    return subscriber; // unsubscribe on unmount
-  }, []);
-
-  if (initializing) return null;
-
-  return (
-    <NavigationContainer>
-      <NativeBaseProvider theme={theme}>
-        <AuthProvider>{!user ? <AuthNavigator /> : <HomeStack />}</AuthProvider>
+  // const isDarkMode = useColorScheme() === 'dark'; 
+ 
+ 
+  return(
+      <NativeBaseProvider theme={colorTheme}>
+          <AuthProvider>
+              <Routes/>
+          </AuthProvider> 
       </NativeBaseProvider>
-    </NavigationContainer>
   );
 };
 

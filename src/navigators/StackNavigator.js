@@ -18,7 +18,7 @@ export default HomeStack = () => {
       <Stack.Screen
         name="AddForm"
         component={AddForm}
-        options={{title: 'Add Password'}}
+        options={{title: 'Add Card'}}
       />
     </Stack.Navigator>
   );
