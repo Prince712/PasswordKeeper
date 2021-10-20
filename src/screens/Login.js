@@ -61,7 +61,7 @@ export default function Login({navigation}) {
             }}>
             Email ID
           </FormControl.Label>
-          <Input value={email} onChangeText={email => setemail(email)} />
+          <Input value={email} onChangeText={email => setemail(email)}  color= 'coolGray.800' />
         </FormControl>
         <FormControl>
           <FormControl.Label
@@ -73,6 +73,7 @@ export default function Login({navigation}) {
             Password
           </FormControl.Label>
           <Input
+            color= 'coolGray.800'
             type="password"
             value={password}
             onChangeText={password => setpassword(password)}

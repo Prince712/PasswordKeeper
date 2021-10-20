@@ -9,13 +9,6 @@ import {extendTheme, NativeBaseProvider} from 'native-base';
 import AuthProvider from './navigators/AuthProvider';
 import Routes from './navigators/Routes';
 
-const newColorTheme = {
-  brand: {
-    900: '#FFFFFF',
-    800: '#000000',
-    700: '#000000',
-  },
-};
 const colorTheme = extendTheme({
   colors: {
     // Add new color
@@ -42,16 +35,9 @@ const colorTheme = extendTheme({
     initialColorMode: 'dark',
   },
 });
-const theme = extendTheme({colors: colorTheme});
-// 3. Pass the `theme` prop to the `NativeBaseProvider`
-
-// Handle user state changes
-
 const App = () => {
   // const isDarkMode = useColorScheme() === 'dark'; 
- 
- 
-  return(
+   return(
       <NativeBaseProvider theme={colorTheme}>
           <AuthProvider>
               <Routes/>

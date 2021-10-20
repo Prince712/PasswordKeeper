@@ -1,11 +1,11 @@
-export const ShowToast = (title, Toast, id = 'toast') => {
+export const ShowToast = (title, Toast,status='warning',id = 'toast',) => {
   // let id = 'toast';
   if (!Toast.isActive(id)) {
     Toast.show({
       id,
       title: title,
       placement: 'top',
-      status: 'warning',
+      status: status,
     });
   }
 };

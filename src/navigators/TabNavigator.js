@@ -25,14 +25,14 @@ export default function TabNavigator() {
           }
           return <Ionicons name={iconName} size={size} color={color} />;
         },
-        tabBarActiveTintColor: 'purple',
+        tabBarActiveTintColor: '#4c1d95',
         tabBarInactiveTintColor: 'gray',
-        headerShown: false,
+        // headerShown: false,
         // headerMode: 'screen'
       })}>
-      <Tab.Screen name="Home" component={Home} options={{}} />
-      <Tab.Screen name="Favourite" component={Favourite} />
-      <Tab.Screen name="Profile" component={Profile} />
+      <Tab.Screen name="Home" component={Home} options={{title:'Password Keeper',headerTitleAlign:'center'}} />
+      <Tab.Screen name="Favourite" component={Favourite} options={{headerShown: false}} />
+      <Tab.Screen name="Profile" component={Profile} options={{headerShown: false}} />
     </Tab.Navigator>
   );
 }
