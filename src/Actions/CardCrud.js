@@ -12,3 +12,17 @@ export const  addCard = async (params)=>{
     })
 
 }
+
+
+export const getAllCards = async () =>{   
+  let data = null
+  await cardsRef
+  .orderBy('createdAt','asc')
+  .get()  
+  .then(querySnapshot => {
+    console.log('Total users: ', querySnapshot.size);    
+    // return querySnapshot;
+    data= querySnapshot
+  });
+  return data;
+}

@@ -8,6 +8,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 const Tab = createBottomTabNavigator();
 
 export default function TabNavigator() {
+
   return (
     <Tab.Navigator
       screenOptions={({route}) => ({
@@ -22,6 +23,7 @@ export default function TabNavigator() {
             iconName = focused
               ? 'person-circle-sharp'
               : 'person-circle-outline';
+             
           }
           return <Ionicons name={iconName} size={size} color={color} />;
         },
@@ -30,7 +32,7 @@ export default function TabNavigator() {
         // headerShown: false,
         // headerMode: 'screen'
       })}>
-      <Tab.Screen name="Home" component={Home} options={{title:'Password Keeper',headerTitleAlign:'center'}} />
+      <Tab.Screen name="Home" component={Home} options={{headerTitle:'Password Keeper',headerTitleAlign:'left'}}  />
       <Tab.Screen name="Favourite" component={Favourite} options={{headerShown: false}} />
       <Tab.Screen name="Profile" component={Profile} options={{headerShown: false}} />
     </Tab.Navigator>

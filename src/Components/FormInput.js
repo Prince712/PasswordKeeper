@@ -9,7 +9,7 @@ export default function FormInput({lableValue,defvalue,refs,...rest}) {
               _text={{color: 'muted.700', fontSize: 'md', fontWeight: 700}}>
              {lableValue}
             </FormControl.Label>
-            <Input ref={refs} pl={2}  {...rest} value={defvalue} color= 'coolGray.800' bg={'primary.100'} />
+            <Input ref={refs} pl={2}  {...rest} value={defvalue}  />
     </FormControl>
 
   );
