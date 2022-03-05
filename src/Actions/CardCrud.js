@@ -26,3 +26,15 @@ export const getAllCards = async () =>{
   });
   return data;
 }
+
+export const  updateCard = async (id,params)=>{
+  console.log(id,params);
+  await cardsRef.doc(id).update(params).then(()=>{
+      console.log("card updated successfully");
+    })
+    .catch( e => {
+      console.log("error entering card:",e);
+    })
+
+}
+

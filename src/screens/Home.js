@@ -5,6 +5,8 @@ import {
   Platform,
   TouchableOpacity,
   FlatList,
+  Pressable,
+  SafeAreaView,
 } from 'react-native';
 import {
   VStack,
@@ -19,6 +21,7 @@ import {
   Divider,
   Heading,
   Fab,
+  HStack,
 } from 'native-base';
 // import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
@@ -53,21 +56,57 @@ export default function Home({navigation, route, ...props}) {
     return unsubscribe;
   }, [navigation]);
 
-  const renderItem = ({item}) => (
-    <View style={styles.item}>
-      <Text style={styles.title}>{item.title}</Text>
-    </View>
+  const renderItem = ({item, index}) => (
+    <Pressable onPress={() => navigation.navigate('AddForm', {item})}>
+      {({pressed}) => (
+        <Box
+          border="1"
+          borderRadius="md"
+          bg={'primary.800'}
+          mt={'2'}
+          ml={'4'}
+          mr={'4'}
+          style={{
+            transform: [
+              {
+                scale: pressed ? 0.96 : 1,
+              },
+            ],
+          }}>
+          <HStack alignItems="center" justifyContent={'space-between'}>
+            <VStack space="3" mb={2}>
+              <Box px="2" pt="2">
+                <Text fontSize="md" fontWeight="700">
+                  {item.title}{' '}
+                </Text>
+                <Text fontSize="xs" fontWeight="400">
+                  {item.loginId}
+                </Text>
+              </Box>
+            </VStack>
+            <VStack m="4">
+              <AntDesign
+                name={item.favourite ? 'heart' : 'hearto'}
+                size={20}
+                style={{fontWeight: 'bold'}}
+                color={item.favourite ? '#fff' : '#fff'}
+              />
+            </VStack>
+          </HStack>
+        </Box>
+      )}
+    </Pressable>
   );
 
   return (
-    <Box flex={1} alignItems="center" bg="primary.200">
+    <Box flex={1} alignItems="center" bg="primary.100" safeArea>
       {/* //Search barr.................. */}
-      <VStack width="95%" alignItems="center">
+      <HStack mx={3}>
         <FormInput
           placeholder="Search cards"
           placeholderTextColor={'white'}
-          bg={'gray.500'}
-          pl={5}
+          bg={'primary.500'}
+          pl={'3'}
           borderColor="black"
           InputRightElement={
             <Icon
@@ -79,7 +118,7 @@ export default function Home({navigation, route, ...props}) {
             />
           }
         />
-      </VStack>
+      </HStack>
       {/* //Flatlist */}
       <FlatList
         style={{width: '100%', flex: 1}}

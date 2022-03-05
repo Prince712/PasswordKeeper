@@ -18,7 +18,7 @@ export default HomeStack = () => {
       <Stack.Screen
         name="AddForm"
         component={AddForm}
-        options={{title: 'Add Card'}}
+        options={({ route }) => ({ title: route?.params?.item ? route.params.item.title : 'Add Card' })}
       />
     </Stack.Navigator>
   );

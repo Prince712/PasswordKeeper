@@ -32,7 +32,9 @@ export default function TabNavigator() {
         // headerShown: false,
         // headerMode: 'screen'
       })}>
-      <Tab.Screen name="Home" component={Home} options={{headerTitle:'Password Keeper',headerTitleAlign:'left'}}  />
+      <Tab.Screen name="Home" component={Home}  options={{headerShown: false}}
+      // options={{headerTitle:'Password Keeper',headerTitleAlign:'left'}}  
+      />
       <Tab.Screen name="Favourite" component={Favourite} options={{headerShown: false}} />
       <Tab.Screen name="Profile" component={Profile} options={{headerShown: false}} />
     </Tab.Navigator>
